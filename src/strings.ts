@@ -53,6 +53,7 @@ const strings: InfoStrings = {
       description: "Primarily worked on implementing features in the frontend.",
       homepage: "https://www.utilize.app/",
       startDate: "Jan 2021",
+      endDate: "present",
     },
     {
       org: "DA-IICT",

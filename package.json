@@ -62,5 +62,6 @@
   },
   "devDependencies": {
     "@types/halfmoon": "^1.0.0"
-  }
+  },
+  "homepage": "."
 }

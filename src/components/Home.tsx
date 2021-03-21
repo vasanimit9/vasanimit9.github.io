@@ -6,11 +6,6 @@ import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 const Home = () => {
   const [visibleLength, setVisibleLength] = useState(0);
-  const [subtitleVisibleLength, setSubtitleVisibleLength] = useState(0);
-  const [
-    contactButtonsVisibleLength,
-    setContactButtonsVisibleLength,
-  ] = useState(0);
 
   const contactButtons = [
     <a
@@ -37,20 +32,9 @@ const Home = () => {
     setTimeout(() => {
       if (visibleLength < strings.homepage.hero.name.length) {
         setVisibleLength((length) => length + 1);
-      } else if (
-        subtitleVisibleLength < strings.homepage.hero.subtitle.length
-      ) {
-        setSubtitleVisibleLength((length) => length + 1);
-      } else if (contactButtonsVisibleLength < contactButtons.length) {
-        setContactButtonsVisibleLength((length) => length + 1);
       }
-    }, 50);
-  }, [
-    visibleLength,
-    contactButtonsVisibleLength,
-    subtitleVisibleLength,
-    contactButtons.length,
-  ]);
+    }, 100);
+  }, [visibleLength]);
 
   return (
     <div className={combineClasses(containerClassList)}>
@@ -61,10 +45,10 @@ const Home = () => {
         {strings.homepage.hero.name.slice(0, visibleLength)}
       </div>
       <div className={combineClasses(subtitleClassList)}>
-        {strings.homepage.hero.subtitle.slice(0, subtitleVisibleLength)}
+        {strings.homepage.hero.subtitle}
       </div>
       <div className={combineClasses(contactButtonsContainerClassList)}>
-        {contactButtons.slice(0, contactButtonsVisibleLength)}
+        {contactButtons}
       </div>
     </div>
   );
