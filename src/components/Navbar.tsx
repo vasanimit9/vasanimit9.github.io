@@ -5,6 +5,7 @@ import React from "react";
 
 interface Props {
   title?: string;
+  darkMode: boolean;
 }
 
 const Navbar = (props: Props) => {
@@ -28,7 +29,7 @@ const Navbar = (props: Props) => {
           title="toggle dark mode"
           onClick={() => halfmoon.toggleDarkMode()}
         >
-          <FontAwesomeIcon icon={halfmoon.darkModeOn ? faSun : faMoon} />
+          <FontAwesomeIcon icon={props.darkMode ? faSun : faMoon} />
         </button>
       </div>
     </nav>

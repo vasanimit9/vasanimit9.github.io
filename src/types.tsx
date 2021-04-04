@@ -2,6 +2,7 @@ export interface RouteMapItem {
   link: string;
   name: string;
   component: JSX.Element;
+  icon: JSX.Element;
 }
 
 export interface ProjectInfo {

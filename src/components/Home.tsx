@@ -14,8 +14,9 @@ const Home = () => {
       target="_blank"
       rel="noopener noreferrer"
       style={contactButtonStyle}
+      key={strings.contact.linkedin}
     >
-      <FontAwesomeIcon className="pr" icon={faLinkedinIn} />
+      <FontAwesomeIcon icon={faLinkedinIn} />
     </a>,
     <a
       href={strings.contact.github}
@@ -23,6 +24,7 @@ const Home = () => {
       target="_blank"
       rel="noopener noreferrer"
       style={contactButtonStyle}
+      key={strings.contact.github}
     >
       <FontAwesomeIcon icon={faGithub} />
     </a>,
@@ -68,7 +70,7 @@ const containerClassList: string[] = [
 ];
 
 const heroStyle: React.CSSProperties = {
-  fontSize: 60,
+  fontSize: 54,
 };
 
 const contactButtonsContainerClassList: string[] = [

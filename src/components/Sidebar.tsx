@@ -20,7 +20,7 @@ const Sidebar = (props: SidebarProps) => {
     <div className="sidebar">
       <div className="sidebar-menu">
         {props.routeMap.map((routeData, index) => {
-          const classList = ["sidebar-link"];
+          const classList = ["sidebar-link", "sidebar-link-with-icon"];
           if (routeData.link === location.pathname) {
             classList.push("active");
           }
@@ -31,6 +31,7 @@ const Sidebar = (props: SidebarProps) => {
               onClick={onClickLink}
               className={classList.join(" ")}
             >
+              <span className="sidebar-icon">{routeData.icon}</span>
               {routeData.name}
             </Link>
           );
