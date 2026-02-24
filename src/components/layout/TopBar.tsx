@@ -5,16 +5,6 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-  DrawerFooter,
-} from '@/components/ui/drawer'
 import ThemeToggle from './ThemeToggle'
 
 const navItems = [
@@ -65,48 +55,71 @@ export default function TopBar() {
             <ThemeToggle compact />
           </div>
 
-          {/* Mobile: hamburger + drawer */}
+          {/* Mobile: hamburger + custom panel */}
           <div className="sm:hidden">
-            <Drawer open={open} onOpenChange={setOpen} direction="right">
-              <DrawerTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open menu">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <DrawerHeader className="flex-row items-center justify-between">
-                  <DrawerTitle>Mit Vasani</DrawerTitle>
-                  <DrawerClose asChild>
-                    <Button variant="ghost" size="icon" aria-label="Close menu">
-                      <X className="h-4 w-4" />
-                    </Button>
-                  </DrawerClose>
-                </DrawerHeader>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={open}
+              onClick={() => setOpen(true)}
+              className="inline-flex items-center justify-center size-9 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
 
-                <nav className="flex flex-col gap-1 px-4 pt-2">
-                  {navItems.map(({ href, label, emoji }) => (
-                    <Link
-                      key={href}
-                      href={href}
+            {open && (
+              <>
+                {/* Overlay */}
+                <div
+                  className="fixed inset-0 z-50 bg-black/50"
+                  aria-hidden
+                  onClick={() => setOpen(false)}
+                />
+
+                {/* Slide-in panel */}
+                <div
+                  role="dialog"
+                  aria-modal
+                  aria-label="Navigation menu"
+                  className="fixed inset-y-0 right-0 z-50 w-3/4 max-w-sm bg-background border-l border-border flex flex-col"
+                >
+                  <div className="flex items-center justify-between p-4 border-b border-border">
+                    <span className="font-semibold">Mit Vasani</span>
+                    <button
+                      type="button"
+                      aria-label="Close menu"
                       onClick={() => setOpen(false)}
-                      className={cn(
-                        'flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors',
-                        isActive(href)
-                          ? 'bg-accent text-accent-foreground font-medium'
-                          : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
-                      )}
+                      className="inline-flex items-center justify-center size-9 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
                     >
-                      <span role="img" aria-hidden>{emoji}</span>
-                      {label}
-                    </Link>
-                  ))}
-                </nav>
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
 
-                <DrawerFooter>
-                  <ThemeToggle />
-                </DrawerFooter>
-              </DrawerContent>
-            </Drawer>
+                  <nav className="flex flex-col gap-1 px-4 pt-2">
+                    {navItems.map(({ href, label, emoji }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          'flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors',
+                          isActive(href)
+                            ? 'bg-accent text-accent-foreground font-medium'
+                            : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
+                        )}
+                      >
+                        <span role="img" aria-hidden>{emoji}</span>
+                        {label}
+                      </Link>
+                    ))}
+                  </nav>
+
+                  <div className="mt-auto p-4">
+                    <ThemeToggle />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

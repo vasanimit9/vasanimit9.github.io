@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ThemeProvider } from 'next-themes'
 import TopBar from '@/components/layout/TopBar'
 import './globals.css'
 
@@ -11,6 +10,8 @@ export const metadata: Metadata = {
   description: 'Passionate about the web, enthusiastic about anime, a reader of books, and the writer of my thoughts.',
 }
 
+const themeScript = `(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.classList.add(t);document.documentElement.style.colorScheme=t}catch(e){}})()`
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,13 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TopBar />
-          <main className="pt-14 min-w-0">
-            {children}
-          </main>
-        </ThemeProvider>
+        <TopBar />
+        <main className="pt-14 min-w-0">
+          {children}
+        </main>
       </body>
     </html>
   )
