@@ -18,10 +18,10 @@ export default function HomePage() {
       <p className="text-sm text-muted-foreground mb-5">Software engineer · anime fan · avid reader</p>
 
       <div className="space-y-1 text-muted-foreground mb-8">
-        <p>🧑‍💻 Passionate about the web</p>
-        <p>🧙‍♂️ Enthusiastic about anime</p>
-        <p>📚 A reader of books</p>
-        <p>✍️ The writer of my thoughts</p>
+        <p><span aria-hidden="true">🧑‍💻</span> Building things for the web</p>
+        <p><span aria-hidden="true">🧙‍♂️</span> Hooked on anime and good stories</p>
+        <p><span aria-hidden="true">📚</span> Reading one book too many</p>
+        <p><span aria-hidden="true">✍️</span> Writing down what I think</p>
       </div>
 
       <Button asChild variant="outline" size="sm">
