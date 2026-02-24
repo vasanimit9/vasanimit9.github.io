@@ -1,12 +1,7 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
 import { ThemeProvider } from 'next-themes'
 import TopBar from '@/components/layout/TopBar'
 import './globals.css'
-
-const geistSans = GeistSans
-const geistMono = GeistMono
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className="antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TopBar />
           <main className="pt-14 min-w-0">
