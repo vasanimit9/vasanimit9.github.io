@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "postbuild": "rm -rf docs && cp -r out docs",
     "start": "bunx serve out -p 3000",
     "lint": "eslint",
     "test": "playwright test",
