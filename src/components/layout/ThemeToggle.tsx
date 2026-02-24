@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
 import { Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -11,14 +10,19 @@ interface Props {
 
 export default function ThemeToggle({ compact = false }: Props) {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    setIsDark(document.documentElement.classList.contains('dark'))
   }, [])
 
-  const toggle = () => setTheme(theme === 'dark' ? 'light' : 'dark')
-  const isDark = theme === 'dark'
+  const toggle = () => {
+    const next = !isDark
+    setIsDark(next)
+    document.documentElement.classList.toggle('dark', next)
+    localStorage.setItem('theme', next ? 'dark' : 'light')
+  }
 
   if (!mounted) {
     return compact

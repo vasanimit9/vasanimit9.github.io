@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import PostMeta from '../../components/blog/PostMeta'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft)
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+
+function calculateReadingTime(body: string): number {
+  const words = body.trim().split(/\s+/).length
+  return Math.max(1, Math.ceil(words / 200))
+}
+
+const readingTime = calculateReadingTime(post.body ?? '')
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <div class="px-6 py-12 max-w-2xl mx-auto">
+    <a
+      href="/blog/"
+      class="text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 inline-block"
+    >
+      ← Back to writing
+    </a>
+
+    <article>
+      <header class="mb-8">
+        <h1 class="text-3xl font-bold mb-3">{post.data.title}</h1>
+        <PostMeta
+          date={post.data.date}
+          readingTime={readingTime}
+          tags={post.data.tags}
+        />
+      </header>
+
+      <div class="prose dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-foreground">
+        <Content />
+      </div>
+    </article>
+  </div>
+</Layout>
