@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Mighty Emoji Picker",
+    "date": "2024-04-15",
+    "tags": ["JavaScript", "Preact", "Web Components"],
+    "repository": "https://github.com/vasanimit9/mighty-emoji-picker",
+    "url": "https://www.npmjs.com/package/mighty-emoji-picker",
+    "emoji": "🧭"
+  },
+  {
+    "name": "JAMstack portfolio blog",
+    "date": "2021-06-06",
+    "tags": ["JAMstack", "React", "Redux", "Strapi", "TypeScript"],
+    "repository": "https://github.com/vasanimit9/vasanimit9-frontend",
+    "url": "https://mitvasani.netlify.app/",
+    "emoji": "🧙"
+  },
+  {
+    "name": "The Anime Alchemist App",
+    "date": "2021-01-01",
+    "tags": ["Expo", "Flutter", "React", "React Native"],
+    "repository": "https://github.com/vasanimit9/anime-alchemist-app",
+    "url": "https://expo.io/@vasanimit9/projects/anime-alchemist",
+    "emoji": "🕸️"
+  },
+  {
+    "name": "The Anime Alchemist PWA",
+    "date": "2020-11-04",
+    "tags": ["Flask", "JavaScript", "Python", "React"],
+    "repository": "https://github.com/vasanimit9/www.animealchemist.xyz",
+    "url": "",
+    "emoji": "🕸️"
+  },
+  {
+    "name": "The Terminal-esque Portfolio PWA",
+    "date": "2020-10-19",
+    "tags": ["React"],
+    "repository": "https://github.com/vasanimit9/terminal-pwa",
+    "url": "https://vasanimit9.github.io/terminal-pwa",
+    "emoji": "💹"
+  },
+  {
+    "name": "Price Comparison Tool",
+    "date": "2019-04-28",
+    "tags": ["Beautiful Soup", "Flask", "Python", "Selenium"],
+    "repository": "https://github.com/vasanimit9/priceComparisonTool",
+    "url": "",
+    "emoji": "💹"
+  }
+]

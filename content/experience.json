@@ -1,0 +1,42 @@
+[
+  {
+    "company": "Pepper",
+    "role": "Senior Software Engineer",
+    "startDate": "2025-08",
+    "endDate": null,
+    "location": "",
+    "description": "",
+    "technologies": [],
+    "url": ""
+  },
+  {
+    "company": "Hyperface",
+    "role": "SDE 2",
+    "startDate": "2024-04",
+    "endDate": "2025-07",
+    "location": "",
+    "description": "",
+    "technologies": [],
+    "url": ""
+  },
+  {
+    "company": "Learnyst",
+    "role": "SDE",
+    "startDate": "2021-05",
+    "endDate": "2024-04",
+    "location": "",
+    "description": "",
+    "technologies": [],
+    "url": ""
+  },
+  {
+    "company": "Utilize",
+    "role": "SDE Intern",
+    "startDate": "2021-01",
+    "endDate": "2021-04",
+    "location": "",
+    "description": "",
+    "technologies": [],
+    "url": ""
+  }
+]
