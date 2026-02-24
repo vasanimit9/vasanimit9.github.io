@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ExperienceItem from '../components/experience/ExperienceItem'
+import ProjectCard from '../components/experience/ProjectCard'
+import { Separator } from '../components/ui/separator'
+import { getExperience } from '../lib/experience'
+import { getProjects } from '../lib/projects'
+
+const jobs = getExperience()
+const projects = getProjects()
+---
+
+<Layout title="Experience">
+  <div class="px-6 py-12 max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Experience</h1>
+
+    <section class="mb-12">
+      <h2 class="text-lg font-semibold mb-6">Work</h2>
+      <div class="space-y-8">
+        {
+          jobs.map((item, i) => (
+            <div>
+              <ExperienceItem item={item} />
+              {i < jobs.length - 1 && <Separator className="mt-8" />}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <Separator className="mb-12" />
+
+    <section>
+      <h2 class="text-lg font-semibold mb-6">Projects</h2>
+      <div class="space-y-8">
+        {
+          projects.map((project, i) => (
+            <div>
+              <ProjectCard project={project} />
+              {i < projects.length - 1 && <Separator className="mt-8" />}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Layout>

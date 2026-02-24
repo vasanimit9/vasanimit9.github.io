@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import PostCard from '../../components/blog/PostCard'
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft)
+const posts = allPosts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+)
+
+function calculateReadingTime(body: string): number {
+  const words = body.trim().split(/\s+/).length
+  return Math.max(1, Math.ceil(words / 200))
+}
+---
+
+<Layout title="Blog">
+  <div class="px-6 py-12 max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Writing</h1>
+    {
+      posts.length === 0 ? (
+        <p class="text-muted-foreground">No posts yet.</p>
+      ) : (
+        <div class="space-y-4">
+          {posts.map((post) => (
+            <PostCard
+              post={{
+                slug: post.slug,
+                title: post.data.title,
+                date: post.data.date,
+                description: post.data.description,
+                tags: post.data.tags,
+                draft: post.data.draft,
+                readingTime: calculateReadingTime(post.body ?? ''),
+              }}
+            />
+          ))}
+        </div>
+      )
+    }
+  </div>
+</Layout>

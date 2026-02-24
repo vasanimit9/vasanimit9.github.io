@@ -1,7 +1,5 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -19,32 +17,35 @@ import ThemeToggle from './ThemeToggle'
 
 const navItems = [
   { href: '/', label: 'Home', emoji: '🏠' },
-  { href: '/experience', label: 'Experience', emoji: '💻' },
-  { href: '/blog', label: 'Blog', emoji: '✍️' },
-  { href: '/reading', label: 'Reading', emoji: '📚' },
+  { href: '/experience/', label: 'Experience', emoji: '💻' },
+  { href: '/blog/', label: 'Blog', emoji: '✍️' },
+  { href: '/reading/', label: 'Reading', emoji: '📚' },
 ]
 
-export default function TopBar() {
-  const pathname = usePathname()
+interface Props {
+  currentPath: string
+}
+
+export default function TopBar({ currentPath }: Props) {
   const [open, setOpen] = useState(false)
 
   const isActive = (href: string) =>
-    href === '/' ? pathname === '/' : pathname.startsWith(href)
+    href === '/' ? currentPath === '/' : currentPath.startsWith(href.replace(/\/$/, ''))
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-14 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="flex items-center justify-between h-full px-4">
-        <Link
+        <a
           href="/"
           className="font-semibold text-foreground hover:text-foreground/80 transition-colors"
         >
           Mit Vasani
-        </Link>
+        </a>
 
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-1">
           {navItems.map(({ href, label }) => (
-            <Link
+            <a
               key={href}
               href={href}
               className={cn(
@@ -55,7 +56,7 @@ export default function TopBar() {
               )}
             >
               {label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -85,7 +86,7 @@ export default function TopBar() {
 
                 <nav className="flex flex-col gap-1 px-4 pt-2">
                   {navItems.map(({ href, label, emoji }) => (
-                    <Link
+                    <a
                       key={href}
                       href={href}
                       onClick={() => setOpen(false)}
@@ -98,7 +99,7 @@ export default function TopBar() {
                     >
                       <span role="img" aria-hidden>{emoji}</span>
                       {label}
-                    </Link>
+                    </a>
                   ))}
                 </nav>
 
