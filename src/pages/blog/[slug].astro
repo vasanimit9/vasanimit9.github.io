@@ -2,6 +2,14 @@
 import { getCollection, render } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import PostMeta from '../../components/blog/PostMeta'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '../../components/ui/breadcrumb'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft)
@@ -24,12 +32,21 @@ const readingTime = calculateReadingTime(post.body ?? '')
 
 <Layout title={post.data.title} description={post.data.description}>
   <div class="px-6 py-12 max-w-2xl mx-auto">
-    <a
-      href="/blog/"
-      class="text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 inline-block"
-    >
-      ← Back to writing
-    </a>
+    <Breadcrumb className="mb-8">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/blog/">Writing</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>{post.data.title}</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
 
     <article>
       <header class="mb-8">
