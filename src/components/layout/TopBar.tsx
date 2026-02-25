@@ -68,7 +68,7 @@ export default function TopBar({ currentPath }: Props) {
 
           {/* Mobile: hamburger + drawer */}
           <div className="sm:hidden">
-            <Drawer open={open} onOpenChange={setOpen} direction="right">
+            <Drawer open={open} onOpenChange={setOpen} direction="left">
               <DrawerTrigger asChild>
                 <Button variant="ghost" size="icon" aria-label="Open menu">
                   <Menu className="h-5 w-5" />
