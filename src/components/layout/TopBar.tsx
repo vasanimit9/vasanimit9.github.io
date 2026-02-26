@@ -20,6 +20,7 @@ const navItems = [
   { href: '/experience/', label: 'Experience', emoji: '💻' },
   { href: '/blog/', label: 'Blog', emoji: '✍️' },
   { href: '/reading/', label: 'Reading', emoji: '📚' },
+  { href: '/thought-museums/', label: 'Thought Museums', emoji: '🏛️' },
 ]
 
 interface Props {

@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const websites = [
+  { name: 'Joel Spolsky', url: 'https://www.joelonsoftware.com' },
+  { name: 'Paul Graham', url: 'https://www.paulgraham.com' },
+  { name: 'Julia Evans', url: 'https://jvns.ca' },
+  { name: 'Brian Lovin', url: 'https://brianlovin.com' },
+  { name: 'DHH', url: 'https://world.hey.com/dhh' },
+  { name: 'Dan Abramov', url: 'https://overreacted.io' },
+]
+---
+
+<Layout title="Thought Museums">
+  <div class="px-6 py-12 max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Thought Museums</h1>
+    <div class="divide-y divide-border">
+      {websites.map(({ name, url }) => (
+        <div class="py-3 flex items-center justify-between">
+          <span class="font-medium">{name}</span>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {url.replace(/^https?:\/\//, '')}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
