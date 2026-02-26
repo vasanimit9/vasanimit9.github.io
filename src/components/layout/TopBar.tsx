@@ -35,7 +35,7 @@ export default function TopBar({ currentPath }: Props) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-14 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="flex items-center justify-between h-full px-4">
+      <div className="flex items-center justify-between h-full px-6">
         <div className="flex items-center gap-2">
           {/* Mobile: hamburger + drawer */}
           <div className="sm:hidden">
