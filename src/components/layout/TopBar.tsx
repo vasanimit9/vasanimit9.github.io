@@ -46,7 +46,7 @@ export default function TopBar({ currentPath }: Props) {
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
-                <DrawerHeader className="flex-row items-center justify-between border-b border-border pb-4">
+                <DrawerHeader className="flex-row items-center justify-between border-b border-border h-14 px-4 py-0">
                   <DrawerTitle>Mit Vasani</DrawerTitle>
                   <DrawerClose asChild>
                     <Button variant="ghost" size="icon" aria-label="Close menu">
