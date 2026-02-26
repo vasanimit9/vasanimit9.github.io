@@ -41,12 +41,12 @@ export default function TopBar({ currentPath }: Props) {
           <div className="sm:hidden">
             <Drawer open={open} onOpenChange={setOpen} direction="left">
               <DrawerTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Button variant="ghost" size="icon" className="-ml-2" aria-label="Open menu">
                   <Menu className="h-5 w-5" />
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
-                <DrawerHeader className="flex-row items-center justify-between">
+                <DrawerHeader className="flex flex-row items-center justify-between border-b border-border h-14 px-4 py-0">
                   <DrawerTitle>Mit Vasani</DrawerTitle>
                   <DrawerClose asChild>
                     <Button variant="ghost" size="icon" aria-label="Close menu">
