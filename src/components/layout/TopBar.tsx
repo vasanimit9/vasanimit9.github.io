@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { PanelLeftOpen, PanelLeftClose } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -42,17 +42,17 @@ export default function TopBar({ currentPath }: Props) {
             <Drawer open={open} onOpenChange={setOpen} direction="left">
               <DrawerTrigger asChild>
                 <Button variant="ghost" size="icon" className="-ml-2" aria-label="Open menu">
-                  <PanelLeftOpen className="h-5 w-5" />
+                  <Menu className="h-5 w-5" />
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
-                <DrawerHeader className="flex flex-row items-center gap-2 border-b border-border h-14 px-4 py-0">
+                <DrawerHeader className="flex flex-row items-center justify-between border-b border-border h-14 px-4 py-0">
+                  <DrawerTitle>Mit Vasani</DrawerTitle>
                   <DrawerClose asChild>
-                    <Button variant="ghost" size="icon" className="-ml-2" aria-label="Close menu">
-                      <PanelLeftClose className="h-4 w-4" />
+                    <Button variant="ghost" size="icon" aria-label="Close menu">
+                      <X className="h-4 w-4" />
                     </Button>
                   </DrawerClose>
-                  <DrawerTitle>Mit Vasani</DrawerTitle>
                 </DrawerHeader>
 
                 <nav className="flex flex-col gap-1 px-4 pt-2">
