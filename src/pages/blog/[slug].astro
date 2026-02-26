@@ -31,23 +31,27 @@ const readingTime = calculateReadingTime(post.body ?? '')
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
-  <div class="px-6 py-12 max-w-2xl mx-auto">
-    <Breadcrumb className="mb-8">
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/blog/">Writing</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>{post.data.title}</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+  <div class="sticky top-14 z-40 bg-background/80 backdrop-blur-md border-b border-border">
+    <div class="px-6 py-3 max-w-2xl mx-auto">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/blog/">Writing</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{post.data.title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+    </div>
+  </div>
 
+  <div class="px-6 py-12 max-w-2xl mx-auto">
     <article>
       <header class="mb-8">
         <h1 class="text-3xl font-bold mb-3">{post.data.title}</h1>
