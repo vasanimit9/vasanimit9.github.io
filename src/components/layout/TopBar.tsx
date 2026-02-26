@@ -46,13 +46,13 @@ export default function TopBar({ currentPath }: Props) {
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
-                <DrawerHeader className="flex-row items-center justify-between border-b border-border h-14 px-4 py-0">
-                  <DrawerTitle>Mit Vasani</DrawerTitle>
+                <DrawerHeader className="flex-row items-center gap-2 border-b border-border h-14 px-4 py-0">
                   <DrawerClose asChild>
-                    <Button variant="ghost" size="icon" aria-label="Close menu">
+                    <Button variant="ghost" size="icon" className="-ml-2" aria-label="Close menu">
                       <PanelLeftClose className="h-4 w-4" />
                     </Button>
                   </DrawerClose>
+                  <DrawerTitle>Mit Vasani</DrawerTitle>
                 </DrawerHeader>
 
                 <nav className="flex flex-col gap-1 px-4 pt-2">
