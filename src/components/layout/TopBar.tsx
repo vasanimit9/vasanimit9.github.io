@@ -35,37 +35,7 @@ export default function TopBar({ currentPath }: Props) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-14 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="flex items-center justify-between h-full px-4">
-        <a
-          href="/"
-          className="font-semibold text-foreground hover:text-foreground/80 transition-colors"
-        >
-          Mit Vasani
-        </a>
-
-        {/* Desktop nav */}
-        <nav className="hidden sm:flex items-center gap-1">
-          {navItems.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className={cn(
-                'px-3 py-1.5 rounded-md text-sm transition-colors',
-                isActive(href)
-                  ? 'bg-accent text-accent-foreground font-medium'
-                  : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
-              )}
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-1">
-          {/* Desktop theme toggle (icon only) */}
-          <div className="hidden sm:block">
-            <ThemeToggle compact />
-          </div>
-
+        <div className="flex items-center gap-2">
           {/* Mobile: hamburger + drawer */}
           <div className="sm:hidden">
             <Drawer open={open} onOpenChange={setOpen} direction="left">
@@ -109,6 +79,36 @@ export default function TopBar({ currentPath }: Props) {
               </DrawerContent>
             </Drawer>
           </div>
+
+          <a
+            href="/"
+            className="font-semibold text-foreground hover:text-foreground/80 transition-colors"
+          >
+            Mit Vasani
+          </a>
+        </div>
+
+        {/* Desktop nav */}
+        <nav className="hidden sm:flex items-center gap-1">
+          {navItems.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className={cn(
+                'px-3 py-1.5 rounded-md text-sm transition-colors',
+                isActive(href)
+                  ? 'bg-accent text-accent-foreground font-medium'
+                  : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
+              )}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop theme toggle (icon only) */}
+        <div className="hidden sm:block">
+          <ThemeToggle compact />
         </div>
       </div>
     </header>
