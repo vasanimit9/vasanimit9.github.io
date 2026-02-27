@@ -1,6 +1,7 @@
 ---
 import '../styles/globals.css'
 import TopBar from '../components/layout/TopBar'
+import { ClientRouter } from 'astro:transitions'
 
 interface Props {
   title?: string
@@ -29,6 +30,7 @@ const pageTitle = title ? `${title} | Mit Vasani` : 'Mit Vasani'
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
     <script is:inline>
       const theme = localStorage.getItem('theme') ?? 'system'
       const isDark =
@@ -39,7 +41,7 @@ const pageTitle = title ? `${title} | Mit Vasani` : 'Mit Vasani'
   </head>
   <body class="antialiased">
     <TopBar currentPath={currentPath} client:load />
-    <main class="pt-14 min-w-0">
+    <main class="pt-14 min-w-0" transition:animate="fade">
       <slot />
     </main>
   </body>
