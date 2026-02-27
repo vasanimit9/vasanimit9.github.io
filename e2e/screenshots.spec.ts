@@ -7,7 +7,6 @@ const ROUTES = [
   { name: 'experience', path: '/experience' },
   { name: 'blog', path: '/blog' },
   { name: 'blog-post', path: '/blog/anime-dev-and-other-musings' },
-  { name: 'reading', path: '/reading' },
 ]
 
 for (const route of ROUTES) {
